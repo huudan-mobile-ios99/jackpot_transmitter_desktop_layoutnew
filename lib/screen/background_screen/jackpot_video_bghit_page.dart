@@ -198,7 +198,7 @@ class _JackpotBackgroundVideoHitWindowFadeAnimationPState extends State<JackpotB
             right: ConfigCustom.text_hit_number_dX,
             child: Text(
               '#${widget.number}',
-              style: textStyleSmall,
+              style: textStyleJPHitSmall,
             ),
           ),
         ],

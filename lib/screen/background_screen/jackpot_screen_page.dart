@@ -72,10 +72,6 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
                         // )
                       :
                       priceState.error != null ? Container() : circularProgessCustom()
-                      // Text(
-                      //     priceState.error != null ? "Error: ${priceState.error}" : "Connecting ...",
-                      //     style: const TextStyle(fontSize: 8.0, color: Colors.white),
-                      //   ),
                 );
               },
             );
@@ -95,6 +91,7 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
             nameJP: ConfigCustom.tagVegas,
             valueKey: ConfigCustom.tagVegas,
             hiveValue: hiveValues[ConfigCustom.tagVegas] ?? 0.0,
+            isSmall: false,
           ),
         ),
         Positioned(
@@ -104,6 +101,7 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
             nameJP: ConfigCustom.tagMonthly,
             valueKey: ConfigCustom.tagMonthly,
             hiveValue: hiveValues[ConfigCustom.tagMonthly] ?? 0.0,
+            isSmall: false,
           ),
         ),
          Positioned(
@@ -113,6 +111,7 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
             nameJP: ConfigCustom.tagWeekly,
             valueKey: ConfigCustom.tagWeekly,
             hiveValue: hiveValues[ConfigCustom.tagWeekly] ?? 0.0,
+            isSmall: false,
           ),
         ),
 
@@ -124,6 +123,7 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
             nameJP: ConfigCustom.tagTriple,
             valueKey: ConfigCustom.tagTriple,
             hiveValue: hiveValues[ConfigCustom.tagTriple] ?? 0.0,
+            isSmall: false,
           ),
         ),
         Positioned(
@@ -133,6 +133,7 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
             nameJP: ConfigCustom.tagDozen,
             valueKey: ConfigCustom.tagDozen,
             hiveValue: hiveValues[ConfigCustom.tagDozen] ?? 0.0,
+            isSmall: false,
           ),
         ),
         Positioned(
@@ -142,6 +143,7 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
             nameJP: ConfigCustom.tagHighLimit,
             valueKey: ConfigCustom.tagHighLimit,
             hiveValue: hiveValues[ConfigCustom.tagHighLimit] ?? 0.0,
+            isSmall: false,
           ),
         ),
 
@@ -154,6 +156,7 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
             nameJP: ConfigCustom.tagDailyGolden,
             valueKey: ConfigCustom.tagDailyGolden,
             hiveValue: hiveValues[ConfigCustom.tagDailyGolden] ?? 0.0,
+            isSmall: false,
           ),
         ),
         Positioned(
@@ -163,6 +166,7 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
             nameJP:ConfigCustom.tagDaily ,
             valueKey: ConfigCustom.tagDaily,
             hiveValue: hiveValues[ConfigCustom.tagDaily] ?? 0.0,
+            isSmall: true,
           ),
         ),
         Positioned(
@@ -173,6 +177,7 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
             nameJP: ConfigCustom.tagFrequent,
             valueKey: ConfigCustom.tagFrequent,
             hiveValue: hiveValues[ConfigCustom.tagFrequent] ?? 0.0,
+            isSmall: true,
           ),
         ),
       ],
@@ -186,12 +191,14 @@ class JackpotOdometer extends StatelessWidget {
   final String nameJP;
   final String valueKey;
   final double hiveValue;
+  final bool isSmall;
 
   const JackpotOdometer({
     super.key,
     required this.nameJP,
     required this.valueKey,
     required this.hiveValue,
+    required this.isSmall,
   });
 
   @override
@@ -208,6 +215,8 @@ class JackpotOdometer extends StatelessWidget {
           endValue: values.endValue,
           nameJP: nameJP,
           hiveValue: hiveValue,
+          isSmall:isSmall
+
         );
       },
     );

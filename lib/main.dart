@@ -83,12 +83,6 @@ class MyAppBodyState extends State<MyAppBody> with WindowListener {
     super.dispose();
   }
 
-  Future<void> _initWindowManager() async {
-    // Prevent window from closing immediately to show confirmation dialog
-    await windowManager.setPreventClose(true);
-    await windowManager.setBackgroundColor(Colors.transparent);
-    setState(() {});
-  }
 
   @override
   void onWindowClose() async {

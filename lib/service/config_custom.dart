@@ -2,17 +2,19 @@ class ConfigCustom {
   static const String endpoint_web_socket = 'ws://192.168.100.165:8080';// static const String urlSocketJPHit = 'http://30.0.0.56:3002';
   static const String endpoint_jp_hit = 'http://192.168.101.58:8097'; //endpointWebSocket= "ws://localhost:8080"
   // static const String endpointWebSocket= "ws://192.168.101.58:8081";  //endpointWebSocket= "ws://localhost:8080"
-  static const double fixWidth= 2080; //1.25 ratio
-  static const double fixHeight= 1560;//1.25 ratio
-  // static const int window_width = 2080;
-  // static const int width_height = 1560;
+  // static const double fixWidth= 2080; //1.25 ratio
+  // static const double fixHeight= 1560;//1.25 ratio
+
+  static const double fixWidth= 1920; //1.25 ratio
+  static const double fixHeight= 1080;//1.25 ratio
+
   // static const int window_width = 2080;
   // static const int width_height = 1560;
 
-  static int durationSwitchVideoSecond = 20; //swich video 1 and video background 2 after every 2min
+  static int durationSwitchVideoSecond = 30; //swich video 1 and video background 2 after every 2min
   static int durationFinishCircleSpinNumber = 29; //swich video 1 and video background 2 after every 2min
   static int durationGetDataToBloc = 0;
-  static int durationGetDataToBlocFirstMS = 100;
+  static int durationGetDataToBlocFirstMS = 0;
   static int switchBetweeScreenDuration = 0;
   static int switchBetweeScreenDurationForHitScreen = 0;
   static int durationTimerVideoHitShow_Jackpot = 30; //show video hit for 30
@@ -20,7 +22,7 @@ class ConfigCustom {
   static int secondToReConnect = 10;
 
 
-  static int totalCountToRestart = 5; //1 count will be 30s | 240s will be 2h
+  static int totalCountToRestart = 240; //1 count will be 30s | 240s will be 2h
 
 
 
@@ -99,44 +101,53 @@ class ConfigCustom {
   static const double text_hit_number_offset_dx = 0.0;
   static const double text_hit_number_offset_dy = 2.0;
   static const double text_hit_number_blur_radius = 4.0;
-  static const double text_hit_number_size = 55.0;
-  static const double text_hit_number_dX = 68.0;
-  static const double text_hit_number_dY = 30.0;
+  static const double text_hit_number_size = 50.0;
+  static const double text_hit_number_dX = 75.0;
+  static const double text_hit_number_dY = 235.0;
 
 
-  static const double text_odo_size = 42.5;
-  static const double text_odo_offset_dx = 0.0;
-  static const double text_odo_blur_radius = 3.5;
-  static const double text_odo_letter_width = 27.5;
-  static const double text_odo_letter_vertical_offset = 42.5;
+  static const double text_odo_size = 58.5;
+  static const double text_odo_letter_width = 35.5;
+  static const double text_odo_letter_vertical_offset = 52;
+  static const double odo_position_top = 17;
+  static const double odo_height = 58.5;
+  //small version
+  static const double text_odo_size_small = 52.5;
+  static const double text_odo_letter_width_small = 32.5;
+  static const double text_odo_letter_vertical_offset_small = 50;
+  static const double odo_position_top_small = 18.5;
+  static const double odo_height_small = 54;
+
   static const double odo_width = 1040;
-  static const double odo_height = 55;
-  static const double odo_position_top = 4;
+
+  static const double text_odo_blur_radius = 3.5;
+    static const double text_odo_offset_dx = 0.0;
+
 
   static const String text_odo_comment = 'odo_width=width/2 (current:1536/2);text odo_letter_width = text_odo_size*0.615; text_odo_letter_vertical_offset =text_odo_size* 1.1';
   static const double jp_frequent_screen1_dX = -260;
-  static const double jp_frequent_screen1_dY = 548;
+  static const double jp_frequent_screen1_dY = 543;
 
-  static const double jp_daily_screen1_dX = 470;
-  static const double jp_daily_screen1_dY = 548.0;
+  static const double jp_daily_screen1_dX = 478;
+  static const double jp_daily_screen1_dY = 543;
   static const double jp_dailygolden_screen1_dX = -180.0;
-  static const double jp_dailygolden_screen1_dY = 548.0;
-  static const double jp_dozen_screen1_dX = 470;
-  static const double jp_dozen_screen1_dY = 393.5;
+  static const double jp_dailygolden_screen1_dY = 531.75;
+  static const double jp_dozen_screen1_dX = 482;
+  static const double jp_dozen_screen1_dY = 377.75;
   static const double jp_weekly_screen1_dX = -260;
-  static const double jp_weekly_screen1_dY = 239.5;
+  static const double jp_weekly_screen1_dY = 225.5;
 
 
   static const double jp_highlimit_screen2_dX =-260;
-  static const double jp_highlimit_screen2_dY = 393.5;
+  static const double jp_highlimit_screen2_dY = 377.75;
 
   static const double jp_tripple_screen2_dX = -180.0;
-  static const double jp_tripple_screen2_dY = 393.5;
+  static const double jp_tripple_screen2_dY = 377.75;
 
-  static const double jp_monthly_screen2_dX = 470;
-  static const double jp_monthly_screen2_dY = 239.5;
-  static const double jp_vegas_screen1_dX = -180.0;
-  static const double jp_vegas_screen2_dY = 239.5;
+  static const double jp_monthly_screen2_dX = 482;
+  static const double jp_monthly_screen2_dY = 225.5;
+  static const double jp_vegas_screen1_dX = -185.0;
+  static const double jp_vegas_screen2_dY = 225.5;
 
   static const String jp_screen_comment = 'jp_screen1 for layout 1 content 5 prices jackpot, jp_screen2 for layout 2 content 6 price jackpot';
   static const int jp_id_frequent = 0;

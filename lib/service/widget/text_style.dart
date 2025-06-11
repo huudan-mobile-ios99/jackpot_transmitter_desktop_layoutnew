@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:playtech_transmitter_app/service/config_custom.dart';
-final textStyleOdo =  TextStyle(
+final textStyleOdo = TextStyle(
     fontSize: ConfigCustom.text_odo_size,
     color: Colors.white,
     fontFamily: 'sf-pro-display',
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w600,
   );
-final textStyleJPHit =  TextStyle(
-      fontSize:  ConfigCustom.text_hit_price_size,
+final textStyleOdoSmall = TextStyle(
+    fontSize: ConfigCustom.text_odo_size_small,
+    color: Colors.white,
+    fontFamily: 'sf-pro-display',
+    fontWeight: FontWeight.w600,
+);
+
+
+final textStyleJPHit = TextStyle(
+      fontSize: ConfigCustom.text_hit_price_size,
       color: Colors.white,
       fontFamily: 'sf-pro-display',
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.w600,
       shadows: const [
         Shadow(
           color: Colors.orangeAccent,
@@ -19,11 +27,11 @@ final textStyleJPHit =  TextStyle(
         ),
       ],
     );
-    final textStyleSmall = TextStyle(
+    final textStyleJPHitSmall = TextStyle(
       fontSize: ConfigCustom.text_hit_number_size,
       color: Colors.white,
       fontFamily: 'sf-pro-display',
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.w600,
       shadows: const [
         Shadow(
           color: Colors.orangeAccent,
@@ -32,10 +40,3 @@ final textStyleJPHit =  TextStyle(
         ),
       ],
     );
-const textStyleOdoSmall =  TextStyle(
-    fontSize: 50,
-    color: Colors.white,
-    fontFamily: 'sf-pro-display',
-    fontWeight: FontWeight.normal,
-
-  );

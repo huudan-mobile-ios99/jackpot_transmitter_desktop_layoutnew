@@ -13,7 +13,7 @@ class GameOdometerChildStyleOptimized extends StatefulWidget {
   final double endValue;
   final double hiveValue; // New field for Hive initial value
   final String nameJP;
-
+  final bool isSmall;
 
    GameOdometerChildStyleOptimized({
     super.key,
@@ -21,6 +21,7 @@ class GameOdometerChildStyleOptimized extends StatefulWidget {
     required this.endValue,
     required this.hiveValue,
     required this.nameJP,
+    required this.isSmall,
   });
 
   @override
@@ -137,16 +138,15 @@ class _GameOdometerChildStyleOptimizedState extends State<GameOdometerChildStyle
 
   @override
   Widget build(BuildContext context) {
-    final double letterWidth = ConfigCustom.text_odo_letter_width;
-    final double verticalOffset = ConfigCustom.text_odo_letter_vertical_offset;
+
 
     return ClipRect(
       child: RepaintBoundary(
         child: Container(
-          color:Colors.white10,
+          // color:Colors.white10,
           alignment: Alignment.center,
           width: ConfigCustom.fixWidth / 2,
-          height: ConfigCustom.odo_height,
+          height:widget.isSmall==true? ConfigCustom.odo_height_small :  ConfigCustom.odo_height,
           child: Stack(
             children: [
               Positioned(
@@ -158,12 +158,12 @@ class _GameOdometerChildStyleOptimizedState extends State<GameOdometerChildStyle
                   builder: (context, value, child) {
                     return RepaintBoundary(
                       child: SlideOdometerTransition(
-                        verticalOffset: verticalOffset,
-                        groupSeparator: Text(',', style: textStyleOdo),
-                        decimalSeparator: Text('.', style: textStyleOdo),
-                        letterWidth: letterWidth,
+                        verticalOffset:widget.isSmall==true?ConfigCustom.text_odo_letter_vertical_offset_small :  ConfigCustom.text_odo_letter_vertical_offset,
+                        groupSeparator: Text(',', style: widget.isSmall==true?textStyleOdoSmall : textStyleOdo,),
+                        decimalSeparator: Text('.', style: widget.isSmall==true?textStyleOdoSmall : textStyleOdo,),
+                        letterWidth:widget.isSmall==true?ConfigCustom.text_odo_letter_width_small : ConfigCustom.text_odo_letter_width,
                         odometerAnimation: odometerAnimation,
-                        numberTextStyle: textStyleOdo,
+                        numberTextStyle:widget.isSmall==true?textStyleOdoSmall : textStyleOdo,
                         decimalPlaces: 2,
                         integerDigits: 0,
                       ),
