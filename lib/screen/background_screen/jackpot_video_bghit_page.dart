@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:playtech_transmitter_app/service/config_custom.dart';
+import 'package:playtech_transmitter_app/service/config_custom_jackpot.dart';
+import 'package:playtech_transmitter_app/service/config_custom_text.dart';
 import 'package:playtech_transmitter_app/service/widget/text_style.dart';
 
 class JackpotBackgroundVideoHitWindowFadeAnimationP extends StatefulWidget {
@@ -36,45 +38,45 @@ class _JackpotBackgroundVideoHitWindowFadeAnimationPState extends State<JackpotB
   String getVideoAssetPath(String id) {
     switch (id) {
       case '0':
-        return ConfigCustom.jp_id_frequent_video_path;
+        return ConfigCustomJackpot.jp_id_frequent_video_path;
       case '1':
-        return ConfigCustom.jp_id_daily_video_path;
+        return ConfigCustomJackpot.jp_id_daily_video_path;
       case '2':
-        return ConfigCustom.jp_id_dozen_video_path;
+        return ConfigCustomJackpot.jp_id_dozen_video_path;
       case '3':
-        return ConfigCustom.jp_id_weekly_video_path;
+        return ConfigCustomJackpot.jp_id_weekly_video_path;
       case '4':
-       return ConfigCustom.jp_id_vegas_video_path;
+       return ConfigCustomJackpot.jp_id_vegas_video_path;
       case '44':
-       return ConfigCustom.jp_id_monthly_video_path;
+       return ConfigCustomJackpot.jp_id_monthly_video_path;
       case '46':
-        return ConfigCustom.jp_id_monthly_video_path;
+        return ConfigCustomJackpot.jp_id_monthly_video_path;
       case '34':
-        return ConfigCustom.jp_id_dailygolden_video_path;
+        return ConfigCustomJackpot.jp_id_dailygolden_video_path;
       case '35':
-        return ConfigCustom.jp_id_tripple_video_path;
+        return ConfigCustomJackpot.jp_id_tripple_video_path;
 
       case '45':
-        return ConfigCustom.jp_id_highlimit_video_path;
+        return ConfigCustomJackpot.jp_id_highlimit_video_path;
       case '18':
-        return ConfigCustom.jp_id_highlimit_video_path;
+        return ConfigCustomJackpot.jp_id_highlimit_video_path;
 
       case '80': //tripple 777 price
-        return ConfigCustom.jp_id_777_1st_video_path;
+        return ConfigCustomJackpot.jp_id_777_1st_video_path;
       case '81':
-        return ConfigCustom.jp_id_777_1st_video_path;
+        return ConfigCustomJackpot.jp_id_777_1st_video_path;
       case '88': //1000 price jackpot town
-        return ConfigCustom.jp_id_1000_1st_video_path;
+        return ConfigCustomJackpot.jp_id_1000_1st_video_path;
       case '89':
-        return ConfigCustom.jp_id_1000_1st_video_path;
+        return ConfigCustomJackpot.jp_id_1000_1st_video_path;
       case '97': //ppochi video
-        return ConfigCustom.jp_id_ppochi_Mon_Fri_video_path;
+        return ConfigCustomJackpot.jp_id_ppochi_Mon_Fri_video_path;
       case '98':
-        return ConfigCustom.jp_id_ppochi_Mon_Fri_video_path;
+        return ConfigCustomJackpot.jp_id_ppochi_Mon_Fri_video_path;
       case '109':
-        return ConfigCustom.jp_id_RL_ppochi_video_path;
+        return ConfigCustomJackpot.jp_id_RL_ppochi_video_path;
       case '119':
-        return ConfigCustom.jp_id_New_20_ppochi_video_path;
+        return ConfigCustomJackpot.jp_id_New_20_ppochi_video_path;
       default:
         return '';
     }
@@ -163,7 +165,7 @@ class _JackpotBackgroundVideoHitWindowFadeAnimationPState extends State<JackpotB
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return
-    Container(
+    SizedBox(
       width: ConfigCustom.fixWidth,
       height: ConfigCustom.fixHeight,
       child: Stack(
@@ -181,7 +183,7 @@ class _JackpotBackgroundVideoHitWindowFadeAnimationPState extends State<JackpotB
           Positioned(
             left: 0,
             right: 0,
-            top: screenSize.height / 2 - ConfigCustom.text_hit_price_size * 0.935,
+            top: screenSize.height / 2 - ConfigCustomText.text_hit_price_size * 0.935,
             child: Container(
               alignment: Alignment.center,
               child: Text(
@@ -194,8 +196,8 @@ class _JackpotBackgroundVideoHitWindowFadeAnimationPState extends State<JackpotB
             ),
           ),
           Positioned(
-            bottom: ConfigCustom.text_hit_number_dY,
-            right: ConfigCustom.text_hit_number_dX,
+            bottom: ConfigCustomText.text_hit_number_dY,
+            right: ConfigCustomText.text_hit_number_dX,
             child: Text(
               '#${widget.number}',
               style: textStyleJPHitSmall,

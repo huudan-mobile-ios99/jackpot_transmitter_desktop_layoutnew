@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:playtech_transmitter_app/service/config_custom.dart';
+import 'package:playtech_transmitter_app/service/config_custom_duration.dart';
+import 'package:playtech_transmitter_app/service/config_custom_jackpot.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'jackpot_event2.dart';
 import 'jackpot_state2.dart';
@@ -11,7 +13,7 @@ import 'jackpot_state2.dart';
 class JackpotBloc2 extends Bloc<JackpotEvent2, JackpotState2> {
   late IO.Socket socket;
   Timer? _imagePageTimer;
-  final int durationTimer = ConfigCustom.durationTimerVideoHitShow_Jackpot; // 30s to show then dismiss
+  final int durationTimer = ConfigCustomDuration.durationTimerVideoHitShow_Jackpot; // 30s to show then dismiss
 
   JackpotBloc2() : super(const JackpotState2()) {
     socket = IO.io(ConfigCustom.endpoint_jp_hit, <String, dynamic>{
@@ -196,20 +198,20 @@ class JackpotBloc2 extends Bloc<JackpotEvent2, JackpotState2> {
   _imagePageTimer?.cancel();
   // List of jackpot IDs that should use 20-second duration
   const twentySecondLevels = [
-    '${ConfigCustom.level7771st}',
-    '${ConfigCustom.level7771stAlt}',
-    '${ConfigCustom.level10001st}',
-    '${ConfigCustom.level10001stAlt}',
-    '${ConfigCustom.levelPpochiMonFri}',
-    '${ConfigCustom.levelPpochiMonFriAlt}',
-    '${ConfigCustom.levelRlPpochi}',
-    '${ConfigCustom.levelNew20Ppochi}',
+    '${ConfigCustomJackpot.level7771st}',
+    '${ConfigCustomJackpot.level7771stAlt}',
+    '${ConfigCustomJackpot.level10001st}',
+    '${ConfigCustomJackpot.level10001stAlt}',
+    '${ConfigCustomJackpot.levelPpochiMonFri}',
+    '${ConfigCustomJackpot.levelPpochiMonFriAlt}',
+    '${ConfigCustomJackpot.levelRlPpochi}',
+    '${ConfigCustomJackpot.levelNew20Ppochi}',
   ];
   // Set duration based on current hit ID
   final hitId = state.latestHit?['id']?.toString();
   final duration = hitId != null && twentySecondLevels.contains(hitId)
-      ? Duration(seconds: ConfigCustom.durationTimerVideoHitShow_Hotseat)
-      : Duration(seconds: ConfigCustom.durationTimerVideoHitShow_Jackpot); // e.g., 30s
+      ? Duration(seconds: ConfigCustomDuration.durationTimerVideoHitShow_Hotseat)
+      : Duration(seconds: ConfigCustomDuration.durationTimerVideoHitShow_Jackpot); // e.g., 30s
   _imagePageTimer = Timer(duration, () {
     add(JackpotHideImagePage());
   });

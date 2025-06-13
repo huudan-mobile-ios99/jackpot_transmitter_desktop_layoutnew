@@ -1,25 +1,26 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:playtech_transmitter_app/screen/background_screen/bloc_jp_price/jackpot_hive_service.dart';
 import 'package:playtech_transmitter_app/screen/background_screen/bloc_jp_price/jackpot_state_state.dart';
 import 'package:playtech_transmitter_app/service/config_custom.dart';
+import 'package:playtech_transmitter_app/service/config_custom_duration.dart';
+import 'package:playtech_transmitter_app/service/config_custom_jackpot.dart';
 import 'package:web_socket_channel/io.dart';
 import 'jackpot_price_event.dart';
 
 class JackpotPriceBloc extends Bloc<JackpotPriceEvent, JackpotPriceState> {
   late IOWebSocketChannel channel;
-  final int secondToReconnect = ConfigCustom.secondToReConnect;
+  final int secondToReconnect = ConfigCustomDuration.secondToReConnect;
   final List<String> _unknownLevels = [];
   final Map<String, bool> _isFirstUpdate = {
-    for (var name in ConfigCustom.validJackpotNames) name: true,
+    for (var name in ConfigCustomJackpot.validJackpotNames) name: true,
   };
-  Map<String, double> _currentBatchValues = {};
+  final Map<String, double> _currentBatchValues = {};
   final Map<String, DateTime> _lastUpdateTime = {};
-  static final Duration _debounceDuration = Duration(seconds: ConfigCustom.durationGetDataToBloc);
-  static final Duration _firstUpdateDelay = Duration(milliseconds: ConfigCustom.durationGetDataToBlocFirstMS);
+  static final Duration _debounceDuration = Duration(seconds: ConfigCustomDuration.durationGetDataToBloc);
+  static final Duration _firstUpdateDelay = Duration(milliseconds: ConfigCustomDuration.durationGetDataToBlocFirstMS);
   final JackpotHiveService hiveService = JackpotHiveService();
   final Logger _logger = Logger();
 
@@ -51,7 +52,7 @@ class JackpotPriceBloc extends Bloc<JackpotPriceEvent, JackpotPriceState> {
             final data = jsonDecode(message);
             final level = data['Id'].toString();
             final value = double.tryParse(data['Value'].toString()) ?? 0.0;
-            final key = ConfigCustom.getJackpotNameByLevel(level);
+            final key = ConfigCustomJackpot.getJackpotNameByLevel(level);
             if (key == null) {
               if (!_unknownLevels.contains(level)) {
                 _unknownLevels.add(level);
@@ -87,7 +88,7 @@ class JackpotPriceBloc extends Bloc<JackpotPriceEvent, JackpotPriceState> {
               if (isFirst) {
                 _isFirstUpdate[key] = false;
               }
-              final validKeys = ConfigCustom.validJackpotNames.toSet();
+              final validKeys = ConfigCustomJackpot.validJackpotNames.toSet();
               jackpotValues.removeWhere((k, v) => !validKeys.contains(k));
               previousJackpotValues.removeWhere((k, v) => !validKeys.contains(k));
               // print('JackpotPriceBloc: Updated $key to $value');
@@ -131,13 +132,13 @@ class JackpotPriceBloc extends Bloc<JackpotPriceEvent, JackpotPriceState> {
   }
 
   Future<void> _onReset(JackpotPriceResetEvent event, Emitter<JackpotPriceState> emit) async {
-    final key = ConfigCustom.getJackpotNameByLevel(event.level);
+    final key = ConfigCustomJackpot.getJackpotNameByLevel(event.level);
     if (key == null) {
       // _logger.d('JackpotPriceBloc: Unknown level for reset: ${event.level}');
       return;
     }
 
-    final resetValue = ConfigCustom.getResetValueByLevel(event.level);
+    final resetValue = ConfigCustomJackpot.getResetValueByLevel(event.level);
     if (resetValue == null) {
       // _logger.d('JackpotPriceBloc: No reset value found for $key');
       return;

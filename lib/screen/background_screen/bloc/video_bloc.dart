@@ -3,8 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-import 'package:playtech_transmitter_app/service/config_custom.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:playtech_transmitter_app/service/config_custom_duration.dart';
 
 part 'video_event.dart';
 part 'video_state.dart';
@@ -15,7 +15,7 @@ class VideoBloc extends Bloc<VideoEvent, ViddeoState> {
   final String videoBg; // Single video
   final BuildContext context; // For Phoenix.rebirth
   Timer? _timer;
-  final int totalCountToRestart = ConfigCustom.totalCountToRestart;
+  final int totalCountToRestart = ConfigCustomDuration.totalCountToRestart;
 
   VideoBloc({
     required this.videoBg,
@@ -33,7 +33,7 @@ class VideoBloc extends Bloc<VideoEvent, ViddeoState> {
 
   void _startTimer() {
     _timer?.cancel(); // Prevent multiple timers
-    _timer = Timer.periodic(Duration(seconds: ConfigCustom.durationSwitchVideoSecond), (_) {
+    _timer = Timer.periodic(Duration(seconds: ConfigCustomDuration.durationSwitchVideoSecond), (_) {
       add(IncrementCount());
     });
   }

@@ -1,4 +1,4 @@
-import 'package:playtech_transmitter_app/service/config_custom.dart';
+import 'package:playtech_transmitter_app/service/config_custom_jackpot.dart';
 
 final class JackpotPriceState {
   final bool isConnected;
@@ -17,10 +17,10 @@ final class JackpotPriceState {
         isConnected: false,
         error: null,
         jackpotValues: {
-          for (var name in ConfigCustom.validJackpotNames) name: 0.0,
+          for (var name in ConfigCustomJackpot.validJackpotNames) name: 0.0,
         },
         previousJackpotValues: {
-          for (var name in ConfigCustom.validJackpotNames) name: 0.0,
+          for (var name in ConfigCustomJackpot.validJackpotNames) name: 0.0,
         },
       );
 

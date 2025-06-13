@@ -11,6 +11,18 @@ import 'bloc_jp_price/jackpot_price_event.dart';
 
 class JackpotHitShowScreen extends StatelessWidget {
   const JackpotHitShowScreen({super.key});
+  // Define the list of jackpot IDs that should show nothing
+  static const List<int> excludedJackpotIds = [
+    80,  // hotseat_id_777_1st
+    81,  // hotseat_id_777_2nd
+    88,  // hotseat_id_1000_1st
+    89,  // hotseat_id_1000_2nd
+    97,  // hotseat_id_ppochi_Mon_Fri
+    98,  // hotseat_id_ppochi_Sat_Sun
+    109, // hotseat_id_RL_ppochi
+    119, // hotseat_id_New_20_ppochi
+  ];
+
 
 
   @override
@@ -53,6 +65,11 @@ class JackpotHitShowScreen extends StatelessWidget {
           // Empty state
           if (hitData == null) {
             return const Center(child: Text('', style: TextStyle(color: Colors.white)));
+          }
+          final hitId = int.tryParse(hitData['id'].toString()) ?? -1;
+          if (excludedJackpotIds.contains(hitId)) {
+            logger.d('JackpotHitShowScreen: Skipping video for excluded ID: $hitId');
+            return const SizedBox.shrink(); // Show nothing for excluded IDs
           }
           // Hit state
           return JackpotBackgroundVideoHitWindowFadeAnimationP(

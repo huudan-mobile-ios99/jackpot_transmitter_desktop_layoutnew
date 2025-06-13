@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
+import 'package:playtech_transmitter_app/screen/background_screen/jackpot_screen_page_horizontal_2496x624.dart';
+import 'package:playtech_transmitter_app/screen/background_screen/jackpot_screen_page_horizontal_marX.dart';
 
-import 'package:playtech_transmitter_app/service/config_custom.dart';
+import 'package:playtech_transmitter_app/service/config_custom_videobackground.dart';
 import 'package:playtech_transmitter_app/service/widget/circlar_progress.dart';
 import 'package:playtech_transmitter_app/screen/background_screen/bloc/video_bloc.dart';
-import 'package:playtech_transmitter_app/screen/background_screen/jackpot_screen_page.dart';
 import 'package:playtech_transmitter_app/screen/background_screen/bloc_socket_time/jackpot_bloc2.dart';
 import 'package:playtech_transmitter_app/screen/background_screen/bloc_socket_time/jackpot_event2.dart';
 
@@ -27,7 +28,7 @@ class _JackpotBackgroundShowWindowFadeAnimatePState extends State<JackpotBackgro
   bool _isInitialized = false;
   int _retryCount = 0;
   static const int _maxRetries = 10;
-  final Media _media = Media('asset://${ConfigCustom.videoBackgroundScreen1}');
+  final Media _media = Media('asset://${ConfigCustomVideoBackground.videoBackgroundScreenHorizontal2}');
 
   @override
   void initState() {
@@ -48,7 +49,7 @@ class _JackpotBackgroundShowWindowFadeAnimatePState extends State<JackpotBackgro
 
     // Load initial video
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _loadVideo(ConfigCustom.videoBackgroundScreen1);
+      _loadVideo(ConfigCustomVideoBackground.videoBackgroundScreen1);
     });
 
     // Handle errors
@@ -61,7 +62,7 @@ class _JackpotBackgroundShowWindowFadeAnimatePState extends State<JackpotBackgro
         });
         Future.delayed(const Duration(seconds: 2), () {
           if (mounted) {
-            _loadVideo(ConfigCustom.videoBackgroundScreen1);
+            _loadVideo(ConfigCustomVideoBackground.videoBackgroundScreen1);
           }
         });
       }
@@ -154,15 +155,15 @@ class _JackpotBackgroundShowWindowFadeAnimatePState extends State<JackpotBackgro
                       ),
                     )
                   : circularProgessCustom(),
-              const RepaintBoundary(child: JackpotDisplayScreen()),
-              Positioned(
-                bottom: 36,
-                left: 36,
-                child: Text(
-                  value.isRestart == true ? '♡' : '${value.count}',
-                  style: const TextStyle(color: Colors.white, fontSize: 16),
-                ),
-              ),
+              const RepaintBoundary(child: JackpotDisplayScreen2496x624()),
+              // Positioned(
+              //   bottom: 36,
+              //   left: 36,
+              //   child: Text(
+              //     value.isRestart == true ? '♡' : '${value.count}',
+              //     style: const TextStyle(color: Colors.white, fontSize: 16),
+              //   ),
+              // ),
             ],
           ),
         );

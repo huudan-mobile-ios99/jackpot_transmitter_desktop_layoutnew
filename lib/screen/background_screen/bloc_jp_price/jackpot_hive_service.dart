@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logger/logger.dart';
-import 'package:playtech_transmitter_app/service/config_custom.dart';
+import 'package:playtech_transmitter_app/service/config_custom_jackpot.dart';
 
 class JackpotHiveService {
   static const String _jackpotBoxName = 'jackpotBox';
@@ -81,7 +81,7 @@ class JackpotHiveService {
       final filteredValues = <String, double>{};
 
       values.forEach((key, value) {
-        if (value != 0.0 && ConfigCustom.validJackpotNames.contains(key)) {
+        if (value != 0.0 && ConfigCustomJackpot.validJackpotNames.contains(key)) {
           filteredValues[key] = value;
         }
       });
@@ -124,7 +124,7 @@ class JackpotHiveService {
 
       // Filter valid values
       values.forEach((key, value) {
-        if (value != 0.0 && ConfigCustom.validJackpotNames.contains(key)) {
+        if (value != 0.0 && ConfigCustomJackpot.validJackpotNames.contains(key)) {
           filteredValues[key] = value;
         }
       });

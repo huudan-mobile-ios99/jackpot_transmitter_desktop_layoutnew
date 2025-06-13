@@ -3,6 +3,8 @@ import 'package:logger/logger.dart';
 import 'package:playtech_transmitter_app/odometer/odometer_number.dart';
 import 'package:playtech_transmitter_app/odometer/slide_odometer.dart';
 import 'package:playtech_transmitter_app/service/config_custom.dart';
+import 'package:playtech_transmitter_app/service/config_custom_duration.dart';
+import 'package:playtech_transmitter_app/service/config_custom_text.dart';
 import 'dart:async';
 import 'package:playtech_transmitter_app/service/widget/text_style.dart';
 
@@ -15,7 +17,7 @@ class GameOdometerChildStyleOptimized extends StatefulWidget {
   final String nameJP;
   final bool isSmall;
 
-   GameOdometerChildStyleOptimized({
+   const GameOdometerChildStyleOptimized({
     super.key,
     required this.startValue,
     required this.endValue,
@@ -40,8 +42,8 @@ class _GameOdometerChildStyleOptimizedState extends State<GameOdometerChildStyle
   final Logger _logger = Logger();
   static const Duration _debounceDuration = Duration(seconds: 0);
   DateTime? _lastUpdateTime;
-  bool _isDisposing = false;
-  final int totalDuration = ConfigCustom.durationFinishCircleSpinNumber; //total duration to finish a spin
+  final bool _isDisposing = false;
+  final int totalDuration = ConfigCustomDuration.durationFinishCircleSpinNumber; //total duration to finish a spin
 
 
   @override
@@ -146,11 +148,11 @@ class _GameOdometerChildStyleOptimizedState extends State<GameOdometerChildStyle
           // color:Colors.white10,
           alignment: Alignment.center,
           width: ConfigCustom.fixWidth / 2,
-          height:widget.isSmall==true? ConfigCustom.odo_height_small :  ConfigCustom.odo_height,
+          height:widget.isSmall==true? ConfigCustomText.odo_height_small :  ConfigCustomText.odo_height,
           child: Stack(
             children: [
               Positioned(
-                top: -ConfigCustom.odo_position_top,
+                top: -ConfigCustomText.odo_position_top,
                 left: 0,
                 right: 0,
                 child: ValueListenableBuilder<double>(
@@ -158,10 +160,10 @@ class _GameOdometerChildStyleOptimizedState extends State<GameOdometerChildStyle
                   builder: (context, value, child) {
                     return RepaintBoundary(
                       child: SlideOdometerTransition(
-                        verticalOffset:widget.isSmall==true?ConfigCustom.text_odo_letter_vertical_offset_small :  ConfigCustom.text_odo_letter_vertical_offset,
+                        verticalOffset:widget.isSmall==true?ConfigCustomText.text_odo_letter_vertical_offset_small :  ConfigCustomText.text_odo_letter_vertical_offset,
                         groupSeparator: Text(',', style: widget.isSmall==true?textStyleOdoSmall : textStyleOdo,),
                         decimalSeparator: Text('.', style: widget.isSmall==true?textStyleOdoSmall : textStyleOdo,),
-                        letterWidth:widget.isSmall==true?ConfigCustom.text_odo_letter_width_small : ConfigCustom.text_odo_letter_width,
+                        letterWidth:widget.isSmall==true?ConfigCustomText.text_odo_letter_width_small : ConfigCustomText.text_odo_letter_width,
                         odometerAnimation: odometerAnimation,
                         numberTextStyle:widget.isSmall==true?textStyleOdoSmall : textStyleOdo,
                         decimalPlaces: 2,

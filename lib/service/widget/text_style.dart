@@ -1,25 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:playtech_transmitter_app/service/config_custom.dart';
-final textStyleOdo = TextStyle(
-    fontSize: ConfigCustom.text_odo_size,
+import 'package:playtech_transmitter_app/service/config_custom_text.dart';
+const textStyleOdo = TextStyle(
+    fontSize: ConfigCustomText.text_odo_size,
     color: Colors.white,
     fontFamily: 'sf-pro-display',
     fontWeight: FontWeight.w600,
   );
-final textStyleOdoSmall = TextStyle(
-    fontSize: ConfigCustom.text_odo_size_small,
+const textStyleOdoHDHorizontal = TextStyle(
+    fontSize: ConfigCustomText.text_odo_size_hd_horizontal,
+    color: Colors.white,
+    fontFamily: 'sf-pro-display',
+    fontWeight: FontWeight.w600,
+  );
+const textStyleOdoSmall = TextStyle(
+    fontSize: ConfigCustomText.text_odo_size_small,
     color: Colors.white,
     fontFamily: 'sf-pro-display',
     fontWeight: FontWeight.w600,
 );
 
 
-final textStyleJPHit = TextStyle(
-      fontSize: ConfigCustom.text_hit_price_size,
+//2496x624
+const textStyleOdo2496x624 = TextStyle(
+    fontSize: ConfigCustomText.text_odo_size_2496x624,
+    color: Colors.white,
+    fontFamily: 'sf-pro-display',
+    fontWeight: FontWeight.w600,
+);
+const textStyleOdo2496x624Small = TextStyle(
+    fontSize: ConfigCustomText.text_odo_size_2496x624_small,
+    color: Colors.white,
+    fontFamily: 'sf-pro-display',
+    fontWeight: FontWeight.w600,
+);
+
+
+const textStyleJPHit = TextStyle(
+      fontSize: ConfigCustomText.text_hit_price_size,
       color: Colors.white,
       fontFamily: 'sf-pro-display',
       fontWeight: FontWeight.w600,
-      shadows: const [
+      shadows: [
         Shadow(
           color: Colors.orangeAccent,
           offset: Offset(0, 2),
@@ -27,12 +48,12 @@ final textStyleJPHit = TextStyle(
         ),
       ],
     );
-    final textStyleJPHitSmall = TextStyle(
-      fontSize: ConfigCustom.text_hit_number_size,
+    const textStyleJPHitSmall = TextStyle(
+      fontSize: ConfigCustomText.text_hit_number_size,
       color: Colors.white,
       fontFamily: 'sf-pro-display',
       fontWeight: FontWeight.w600,
-      shadows: const [
+      shadows: [
         Shadow(
           color: Colors.orangeAccent,
           offset: Offset(0, 2),

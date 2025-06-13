@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:playtech_transmitter_app/odometer/odometer_child.dart';
-import 'package:playtech_transmitter_app/odometer/odometer_child_only_highlimit.dart';
+import 'package:playtech_transmitter_app/screen/background_screen/jackpot_screen_odometer.dart';
 import 'package:playtech_transmitter_app/service/config_custom.dart';
 import 'package:playtech_transmitter_app/screen/background_screen/bloc/video_bloc.dart';
 import 'package:playtech_transmitter_app/screen/background_screen/bloc_jp_price/jackpot_price_bloc.dart';
 import 'package:playtech_transmitter_app/screen/background_screen/bloc_jp_price/jackpot_state_state.dart';
 import 'package:playtech_transmitter_app/screen/background_screen/bloc_jp_price/jackpot_hive_service.dart';
 import 'package:logger/logger.dart';
+import 'package:playtech_transmitter_app/service/config_custom_jackpot.dart';
+import 'package:playtech_transmitter_app/service/config_custom_size_position.dart';
 import 'package:playtech_transmitter_app/service/widget/circlar_progress.dart';
 
 class JackpotDisplayScreen extends StatefulWidget {
@@ -85,64 +86,64 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
     return Stack(
       children: [
          Positioned(
-          top: ConfigCustom.jp_vegas_screen2_dY,
-          left: ConfigCustom.jp_vegas_screen1_dX,
+          top: ConfigCustomSizePosition.jp_vegas_screen2_dY,
+          left: ConfigCustomSizePosition.jp_vegas_screen1_dX,
           child: JackpotOdometer(
-            nameJP: ConfigCustom.tagVegas,
-            valueKey: ConfigCustom.tagVegas,
-            hiveValue: hiveValues[ConfigCustom.tagVegas] ?? 0.0,
+            nameJP: ConfigCustomJackpot.tagVegas,
+            valueKey: ConfigCustomJackpot.tagVegas,
+            hiveValue: hiveValues[ConfigCustomJackpot.tagVegas] ?? 0.0,
             isSmall: false,
           ),
         ),
         Positioned(
-          top: ConfigCustom.jp_monthly_screen2_dY,
-          right: ConfigCustom.jp_monthly_screen2_dX,
+          top: ConfigCustomSizePosition.jp_monthly_screen2_dY,
+          right: ConfigCustomSizePosition.jp_monthly_screen2_dX,
           child: JackpotOdometer(
-            nameJP: ConfigCustom.tagMonthly,
-            valueKey: ConfigCustom.tagMonthly,
-            hiveValue: hiveValues[ConfigCustom.tagMonthly] ?? 0.0,
+            nameJP: ConfigCustomJackpot.tagMonthly,
+            valueKey: ConfigCustomJackpot.tagMonthly,
+            hiveValue: hiveValues[ConfigCustomJackpot.tagMonthly] ?? 0.0,
             isSmall: false,
           ),
         ),
          Positioned(
-          top: ConfigCustom.jp_weekly_screen1_dY,
-          right: ConfigCustom.jp_weekly_screen1_dX,
+          top: ConfigCustomSizePosition.jp_weekly_screen1_dY,
+          right: ConfigCustomSizePosition.jp_weekly_screen1_dX,
           child: JackpotOdometer(
-            nameJP: ConfigCustom.tagWeekly,
-            valueKey: ConfigCustom.tagWeekly,
-            hiveValue: hiveValues[ConfigCustom.tagWeekly] ?? 0.0,
+            nameJP: ConfigCustomJackpot.tagWeekly,
+            valueKey: ConfigCustomJackpot.tagWeekly,
+            hiveValue: hiveValues[ConfigCustomJackpot.tagWeekly] ?? 0.0,
             isSmall: false,
           ),
         ),
 
 //2
         Positioned(
-          top: ConfigCustom.jp_tripple_screen2_dY,
-          left: ConfigCustom.jp_tripple_screen2_dX,
+          top: ConfigCustomSizePosition.jp_tripple_screen2_dY,
+          left: ConfigCustomSizePosition.jp_tripple_screen2_dX,
           child: JackpotOdometer(
-            nameJP: ConfigCustom.tagTriple,
-            valueKey: ConfigCustom.tagTriple,
-            hiveValue: hiveValues[ConfigCustom.tagTriple] ?? 0.0,
+            nameJP: ConfigCustomJackpot.tagTriple,
+            valueKey: ConfigCustomJackpot.tagTriple,
+            hiveValue: hiveValues[ConfigCustomJackpot.tagTriple] ?? 0.0,
             isSmall: false,
           ),
         ),
         Positioned(
-          top: ConfigCustom.jp_dozen_screen1_dY,
-          right: ConfigCustom.jp_dozen_screen1_dX,
+          top: ConfigCustomSizePosition.jp_dozen_screen1_dY,
+          right: ConfigCustomSizePosition.jp_dozen_screen1_dX,
           child: JackpotOdometer(
-            nameJP: ConfigCustom.tagDozen,
-            valueKey: ConfigCustom.tagDozen,
-            hiveValue: hiveValues[ConfigCustom.tagDozen] ?? 0.0,
+            nameJP: ConfigCustomJackpot.tagDozen,
+            valueKey: ConfigCustomJackpot.tagDozen,
+            hiveValue: hiveValues[ConfigCustomJackpot.tagDozen] ?? 0.0,
             isSmall: false,
           ),
         ),
         Positioned(
-          top: ConfigCustom.jp_highlimit_screen2_dY,
-          right: ConfigCustom.jp_highlimit_screen2_dX,
+          top: ConfigCustomSizePosition.jp_highlimit_screen2_dY,
+          right: ConfigCustomSizePosition.jp_highlimit_screen2_dX,
           child: JackpotOdometer(
-            nameJP: ConfigCustom.tagHighLimit,
-            valueKey: ConfigCustom.tagHighLimit,
-            hiveValue: hiveValues[ConfigCustom.tagHighLimit] ?? 0.0,
+            nameJP: ConfigCustomJackpot.tagHighLimit,
+            valueKey: ConfigCustomJackpot.tagHighLimit,
+            hiveValue: hiveValues[ConfigCustomJackpot.tagHighLimit] ?? 0.0,
             isSmall: false,
           ),
         ),
@@ -150,33 +151,33 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
 
 //1
         Positioned(
-          top: ConfigCustom.jp_dailygolden_screen1_dY,
-          left: ConfigCustom.jp_dailygolden_screen1_dX,
+          top: ConfigCustomSizePosition.jp_dailygolden_screen1_dY,
+          left: ConfigCustomSizePosition.jp_dailygolden_screen1_dX,
           child: JackpotOdometer(
-            nameJP: ConfigCustom.tagDailyGolden,
-            valueKey: ConfigCustom.tagDailyGolden,
-            hiveValue: hiveValues[ConfigCustom.tagDailyGolden] ?? 0.0,
+            nameJP: ConfigCustomJackpot.tagDailyGolden,
+            valueKey: ConfigCustomJackpot.tagDailyGolden,
+            hiveValue: hiveValues[ConfigCustomJackpot.tagDailyGolden] ?? 0.0,
             isSmall: false,
           ),
         ),
         Positioned(
-          top: ConfigCustom.jp_daily_screen1_dY,
-          right: ConfigCustom.jp_daily_screen1_dX,
+          top: ConfigCustomSizePosition.jp_daily_screen1_dY,
+          right: ConfigCustomSizePosition.jp_daily_screen1_dX,
           child: JackpotOdometer(
-            nameJP:ConfigCustom.tagDaily ,
-            valueKey: ConfigCustom.tagDaily,
-            hiveValue: hiveValues[ConfigCustom.tagDaily] ?? 0.0,
+            nameJP:ConfigCustomJackpot.tagDaily ,
+            valueKey: ConfigCustomJackpot.tagDaily,
+            hiveValue: hiveValues[ConfigCustomJackpot.tagDaily] ?? 0.0,
             isSmall: true,
           ),
         ),
         Positioned(
-          top: ConfigCustom.jp_frequent_screen1_dY,
-          right: ConfigCustom.jp_frequent_screen1_dX,
+          top: ConfigCustomSizePosition.jp_frequent_screen1_dY,
+          right: ConfigCustomSizePosition.jp_frequent_screen1_dX,
           child:
            JackpotOdometer(
-            nameJP: ConfigCustom.tagFrequent,
-            valueKey: ConfigCustom.tagFrequent,
-            hiveValue: hiveValues[ConfigCustom.tagFrequent] ?? 0.0,
+            nameJP: ConfigCustomJackpot.tagFrequent,
+            valueKey: ConfigCustomJackpot.tagFrequent,
+            hiveValue: hiveValues[ConfigCustomJackpot.tagFrequent] ?? 0.0,
             isSmall: true,
           ),
         ),
@@ -184,79 +185,4 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
     );
   }
 
-
-}
-
-class JackpotOdometer extends StatelessWidget {
-  final String nameJP;
-  final String valueKey;
-  final double hiveValue;
-  final bool isSmall;
-
-  const JackpotOdometer({
-    super.key,
-    required this.nameJP,
-    required this.valueKey,
-    required this.hiveValue,
-    required this.isSmall,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocSelector<JackpotPriceBloc, JackpotPriceState, ({double startValue, double endValue})>(
-      selector: (state) {
-        final blocStartValue = state.previousJackpotValues[valueKey] ?? 0.0;
-        final endValue = state.jackpotValues[valueKey] ?? 0.0;
-        return (startValue: blocStartValue, endValue: endValue);
-      },
-      builder: (context, values) {
-        return GameOdometerChildStyleOptimized(
-          startValue: values.startValue,
-          endValue: values.endValue,
-          nameJP: nameJP,
-          hiveValue: hiveValue,
-          isSmall:isSmall
-
-        );
-      },
-    );
-  }
-}
-
-
-
-
-
-
-
-class JackpotOdometerOnlyHighLimit extends StatelessWidget {
-  final String nameJP;
-  final String valueKey;
-  final double hiveValue;
-
-  const JackpotOdometerOnlyHighLimit({
-    super.key,
-    required this.nameJP,
-    required this.valueKey,
-    required this.hiveValue,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocSelector<JackpotPriceBloc, JackpotPriceState, ({double startValue, double endValue})>(
-      selector: (state) {
-        final blocStartValue = state.previousJackpotValues[valueKey] ?? 0.0;
-        final endValue = state.jackpotValues[valueKey] ?? 0.0;
-        return (startValue: blocStartValue, endValue: endValue);
-      },
-      builder: (context, values) {
-        return GameOdometerChildStyleOnlyForHighLimit(
-          startValue: values.startValue,
-          endValue: values.endValue,
-          nameJP: nameJP,
-          hiveValue: hiveValue,
-        );
-      },
-    );
-  }
 }

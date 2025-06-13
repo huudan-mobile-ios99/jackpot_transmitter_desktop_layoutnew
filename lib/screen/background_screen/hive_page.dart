@@ -43,7 +43,7 @@ class HiveViewPage extends StatelessWidget {
 
           return  Text(
                 '${snapshot.data}',
-                style: TextStyle(color: Colors.white, fontSize: 12),
+                style: const TextStyle(color: Colors.white, fontSize: 12),
               );
         },
       ),

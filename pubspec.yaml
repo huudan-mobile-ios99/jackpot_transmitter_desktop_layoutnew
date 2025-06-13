@@ -78,12 +78,17 @@ flutter:
     - asset/video/video_background.mp4
     - asset/video/video_background2.mp4
     - asset/video/background_new.mp4
-    - asset/video/background_image_new.png
+    - asset/video/background_new_horizontal.mpg
+    - asset/video/background_new_horizontal_2.mpg
+    - asset/video/background_new_horizontal_3.mp4
+    - asset/video/background_new_horizontal_4.mp4
 
     - asset/video/tripple777.mp4
     - asset/video/ppochi.mp4
     - asset/video/ppochi_slot.mp4
     - asset/video/ppochi_rl.mp4
+    - asset/video/hit.mp4
+    - asset/video/hit_led.mp4
 
 
   fonts:

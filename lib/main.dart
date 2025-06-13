@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:playtech_transmitter_app/screen/background_screen/bloc_jp_price/jackpot_hive_service.dart';
+import 'package:playtech_transmitter_app/service/config_custom_videobackground.dart';
 import 'package:window_manager/window_manager.dart';
 
 import 'package:hive_flutter/hive_flutter.dart';
@@ -112,7 +112,7 @@ class MyAppBodyState extends State<MyAppBody> with WindowListener {
           ),
           BlocProvider(
             create: (context) => VideoBloc(
-                context: context, videoBg: ConfigCustom.videoBackgroundScreen2),lazy: false,
+                context: context, videoBg: ConfigCustomVideoBackground.videoBackgroundScreenHorizontal2),lazy: false,
           ),
         ],
         child: BlocListener<VideoBloc, ViddeoState>(
@@ -128,7 +128,7 @@ class MyAppBodyState extends State<MyAppBody> with WindowListener {
                 alignment: Alignment.center,
                 children: [
                   RepaintBoundary( child: JackpotBackgroundShowWindowFadeAnimateP()),
-                  RepaintBoundary(child: JackpotHitShowScreen()),
+                  // RepaintBoundary(child: JackpotHitShowScreen()),
                 ],
               ),
             )));
