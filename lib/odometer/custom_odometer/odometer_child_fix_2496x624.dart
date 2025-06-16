@@ -143,7 +143,7 @@ class _GameOdometerChildStyleFixed2496x624State extends State<GameOdometerChildS
     return ClipRect(
       child: RepaintBoundary(
         child: Container(
-          color:Colors.white10,
+          // color:Colors.white10,
           alignment: Alignment.center,
           width: ConfigCustom.fixWidth / 2,
           height:widget.isSmall==true? ConfigCustomText.odo_height_2496x6244_small :  ConfigCustomText.odo_height_2496x6244,

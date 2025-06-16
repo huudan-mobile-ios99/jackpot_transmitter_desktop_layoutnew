@@ -46,7 +46,7 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
           builder: (context, state) {
             return BlocBuilder<JackpotPriceBloc, JackpotPriceState>(
               buildWhen: (previous, current) =>
-                  previous.isConnected != current.isConnected ||
+                  // previous.isConnected != current.isConnected ||
                   previous.error != current.error ||
                   previous.jackpotValues != current.jackpotValues ||
                   previous.previousJackpotValues != current.previousJackpotValues,
@@ -148,8 +148,7 @@ class _JackpotDisplayScreenState extends State<JackpotDisplayScreen> {
           ),
         ),
 
-
-//1
+        //1
         Positioned(
           top: ConfigCustomSizePosition.jp_dailygolden_screen1_dY,
           left: ConfigCustomSizePosition.jp_dailygolden_screen1_dX,

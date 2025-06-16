@@ -126,7 +126,7 @@ class _JackpotDisplayScreen2496x624State extends State<JackpotDisplayScreen2496x
             isSmall: false,
           ),
         ),
-       
+
 
 
         //ROW BELOW

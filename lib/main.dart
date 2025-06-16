@@ -119,6 +119,7 @@ class MyAppBodyState extends State<MyAppBody> with WindowListener {
             listener: (context, state) {
               if (state.isRestart) {
                 debugPrint( 'MyAppBody: Triggering app restart via BlocListener');
+                context.read<JackpotPriceBloc>().close();
                 _restartApp();
               }
             },

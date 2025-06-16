@@ -156,14 +156,14 @@ class _JackpotBackgroundShowWindowFadeAnimatePState extends State<JackpotBackgro
                     )
                   : circularProgessCustom(),
               const RepaintBoundary(child: JackpotDisplayScreen2496x624()),
-              // Positioned(
-              //   bottom: 36,
-              //   left: 36,
-              //   child: Text(
-              //     value.isRestart == true ? '♡' : '${value.count}',
-              //     style: const TextStyle(color: Colors.white, fontSize: 16),
-              //   ),
-              // ),
+              Positioned(
+                bottom: 64,
+                left: 64,
+                child: Text(
+                  value.isRestart == true ? '♡' : '${value.count}',
+                  style: const TextStyle(color: Colors.white, fontSize: 36),
+                ),
+              ),
             ],
           ),
         );

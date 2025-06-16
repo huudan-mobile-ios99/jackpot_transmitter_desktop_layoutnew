@@ -4,6 +4,7 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   bitsdojo_window_windows
+  connectivity_plus
   flutter_acrylic
   media_kit_libs_windows_video
   media_kit_video

@@ -108,7 +108,7 @@ class _GameOdometerChildStyleOptimizedState extends State<GameOdometerChildStyle
 
   void _startAutoAnimation(double startValue) {
     const increment = 0.01;
-    final interval = Duration(milliseconds:  durationPerStep.clamp(20, 5000));
+    final interval = Duration(milliseconds:  durationPerStep.clamp(10, 5000));
     _animationTimer?.cancel();
     currentValueNotifier.value = startValue;
     _updateAnimation(startValue, startValue);
@@ -212,7 +212,7 @@ int calculationDurationPerStep({
   }
   final totalSteps = ((endValue - startValue) / 0.01).ceil();
   final durationMs = (totalDuration * 1000) / totalSteps;
-  final result = durationMs.round().clamp(20, 10000);
+  final result = durationMs.round().clamp(10, 5000);
   final estimatedTotal = totalSteps * result / 1000;
   // debugPrint('Odometer: Calculation - startValue: $startValue, endValue: $endValue, totalSteps: $totalSteps, durationMs: $durationMs, rounded: $result, estimatedTotal: ${estimatedTotal}s');
   return result;

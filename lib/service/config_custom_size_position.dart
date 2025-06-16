@@ -58,19 +58,19 @@ class ConfigCustomSizePosition {
   static const double jp_dailygolden_2496x624_dX =0;
   static const double jp_dailygolden_2496x624_dY = 157.45;
 
-  static const double jp_dozen_2496x624_dX = 600;
+  static const double jp_dozen_2496x624_dX = 550;
   static const double jp_dozen_2496x624_dY = 61;
 
-  static const double jp_tripple_2496x624_dX = 400;
+  static const double jp_tripple_2496x624_dX = 350;
   static const double jp_tripple_2496x624_dY = 61;
 
-   static const double jp_weekly_2496x624dX = 150;
+   static const double jp_weekly_2496x624dX = 125;
   static const double jp_weekly_2496x624_dY = 61;
 
-  static const double jp_monthly_2496x624_dX = 0;
+  static const double jp_monthly_2496x624_dX = -100;
   static const double jp_monthly_2496x624_dY = 60;
 
-  static const double jp_vegas_2496x624_dX = -300;
+  static const double jp_vegas_2496x624_dX = -370;
   static const double jp_vegas_2496x624_dY = 61;
 
 }

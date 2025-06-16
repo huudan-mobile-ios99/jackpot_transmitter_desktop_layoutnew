@@ -51,5 +51,11 @@ class ConfigCustomText {
 
   static const double text_odo_blur_radius = 3.5;
   static const double text_odo_offset_dx = 0.0;
+
+
+
+
+
+ 
 }
 
